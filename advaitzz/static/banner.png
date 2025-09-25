@@ -1,0 +1,16 @@
+# make_banner.py
+from PIL import Image, ImageDraw, ImageFont
+
+text = "ADVAITZZ"
+font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"  # adjust if needed
+font_size = 80
+
+# create image
+img = Image.new("RGBA", (800, 200), (0, 0, 0, 0))  # transparent background
+draw = ImageDraw.Draw(img)
+font = ImageFont.truetype(font_path, font_size)
+w, h = draw.textsize(text, font=font)
+draw.text(((800-w)/2, (200-h)/2), text, font=font, fill=(0, 255, 255, 255))
+
+img.save("advaitzz/static/banner.png")
+print("Banner saved to advaitzz/static/banner.png")
